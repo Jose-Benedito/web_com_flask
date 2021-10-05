@@ -1,0 +1,29 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+
+def index():
+    produtos = ['brioches', 'pão francês', 'vanderléia']
+    return produtos[1]
+    
+    
+    // FLASK_ENV=development flask run
+    
+    //CRIANDO UM AMBIENTE VIRTUAL VIRTUALENV(Na pasta do projeto)
+    
+[benedito@fedora projeto_flask]$ pip install virtualenv   
+[benedito@fedora projeto_flask]$ python -m ambiente_env
+[benedito@fedora projeto_flask]$ python -m venv ambiente_py
+[benedito@fedora projeto_flask]$ source ambiente_py/bin/activate
+
+// INSTALANDO O FLASK NO AMBIENTE
+(ambiente_py) [benedito@fedora projeto_flask]$ pip install flask
+
+//INSTALANDO AS CONFIGURAÇÕES DO SQL
+(ambiente_py) [benedito@fedora projeto_flask]$ pip install flask-SQLALchemy
+
+// configurar para validação e renderização de formulário
+
+(ambiente_py) [benedito@fedora projeto_flask]$ pip install flask-wft
