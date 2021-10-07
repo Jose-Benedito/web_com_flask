@@ -2,7 +2,14 @@ from flask import render_template, session, request, url_for, flash, redirect
 
 from form import RegistrationForm
 
-from blog import app, db
+from blog import app, db, bcrypt
+from .models import User
+import os
+
+
+
+
+
 
 @app.route('/')
 
@@ -14,9 +21,11 @@ def home():
 def registrar():
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
-        #user = User(form.username.data, form.email.data,
-                   # form.password.data)
-       # db_session.add(user)
+        hash_password = bcrypt.generate_password_hash(form.password.data)
+        user = User(nome=form.name.data, username=form.username.data, email=form.email.data,
+        password=hash_password)
+        
+        db.session.add(user)
         flash('Obrigado por registrar')
         return redirect(url_for('login'))
     return render_template('admin/registrar.html', form=form)
