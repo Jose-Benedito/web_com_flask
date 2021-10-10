@@ -8,4 +8,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///meublog.db' #configurando o n
 app.config['SECRET_KEY'] = 'dscergthyyyjew987'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+
 from blog.admin import route
+from blog.produtos import routes
