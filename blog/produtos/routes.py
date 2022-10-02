@@ -1,9 +1,10 @@
-from flask import redirect, render_template, url_for, flash, request
+import json
+from flask import redirect, render_template, url_for, flash, request,jsonify
 
 from blog import db, app
 from .models import Marca, Categoria
 
-@app.route('/addmarca', methods=['GET', 'POST'])
+@app.route('/api/addmarca', methods=['GET', 'POST'])
 
 def addmarca():
     if request.method == "POST":
@@ -14,3 +15,11 @@ def addmarca():
         db.session.commit()
         return redirect(url_for('addmarca'))
     return render_template('produtos/addmarca.html', marcas = 'marcas' )
+
+@app.route('/api/listarMarcas', methods=['GET'])
+def listarMarcas():
+    marca = db.session.query(Marca)
+    
+        
+
+    return  "Nada por enquantoo"

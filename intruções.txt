@@ -27,3 +27,6 @@ def index():
 // configurar para validação e renderização de formulário
 
 (ambiente_py) [benedito@fedora projeto_flask]$ pip install flask-wft
+
+##Rodar o projeto 
+$python run.py 

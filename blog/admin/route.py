@@ -8,7 +8,9 @@ import os
 
 
 
-
+@app.route('/home')
+def home():
+    return render_template('admin/index.html')
 
 
 @app.route('/admin')
